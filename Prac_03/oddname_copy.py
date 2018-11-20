@@ -3,13 +3,13 @@
 
 def main():
     name = get_name()
-    num = input("Enter the step: ")
-    num = check_integer(num)
-    num = check_stepnum(num, name)
+    num = get_step(name)
     print(name[::num])
 
 
-def check_stepnum(num, name):
+def get_step(name):
+    num = input("Enter the step: ")
+    num = check_integer(num)
     while num == 0 or num > len(name):
         print("Invalid step")
         num = input("Enter the step: ")
