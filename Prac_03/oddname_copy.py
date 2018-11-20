@@ -5,7 +5,7 @@ def main():
     name = get_name()
     num = input("Enter the step: ")
     num = check_integer(num)
-    num = check_stepnum(num)
+    num = check_stepnum(num, name)
     print(name[::num])
 
 
@@ -19,11 +19,9 @@ def check_stepnum(num, name):
 
 def check_integer(num):
     while not num.isdigit():
-        try:
-            num = int(input("Enter the step: "))
-        except ValueError:
-            print("Invalid step")
-            num = input("Enter the step: ")
+        print("Invalid step")
+        num = input("Enter the step: ")
+    num = int(num)
     return num
 
 
