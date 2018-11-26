@@ -14,9 +14,10 @@ def main():
     """Read and display student scores from scores file."""
     scores_file = open("scores.csv")
     scores_data = scores_file.readlines()
-    print(scores_data)
     subjects = scores_data[0].strip().split(",")
     score_values = []
+    scores_subject = []
+
     for score_line in scores_data[1:]:
         score_strings = score_line.strip().split(",")
         score_numbers = [int(value) for value in score_strings]
@@ -24,10 +25,16 @@ def main():
     scores_file.close()
     for i in range(len(subjects)):
         print(subjects[i], "Scores:")
-        for score in score_values[i]:
-            print(score)
-        print("Max:", max(score_values[i]))
-        print()
+        scores_subject.append([])
 
+        for n in range(len(scores_data) - 1):
+            # - 1 because of 1st line
+            print(score_values[n][i])
+            scores_subject[i].append(score_values[n][i])
+        print("Max:", max(scores_subject[i]))
+        print("Min:", min(scores_subject[i]))
+        print("Avg: {:.2f}".format(sum(scores_subject[i])/(len(scores_data)-1)))
+        #print(sum(scores_subject[i]))
+    #print(scores_subject)
 
 main()
