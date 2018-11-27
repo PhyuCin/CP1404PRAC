@@ -24,9 +24,11 @@ def main():
         score_values.append(score_numbers)
     scores_file.close()
 
-    print("Scores table:")
+    print("\nScores table")
+    print("-" * 61)
     print("Student No.     ", end="")
     print("     ".join(subjects))
+    print("-"*61)
 
     #for i in range(len(subjects)):
         #scores_subject.append([])
@@ -34,6 +36,7 @@ def main():
             # - 1 because of 1st line
         print("{:>11}{:10}{:10}{:10}{:10}{:10}".format(n+1, score_values[n][0], score_values[n][1],
               score_values[n][2], score_values[n][3], score_values[n][4]))
+
     average = []
     for i in range(len(subjects)):
         scores_subject.append([])
@@ -42,6 +45,7 @@ def main():
             scores_subject[i].append(score_values[n][i])
         average.append(sum(scores_subject[i])/(len(scores_data)-1))
     #print(average)
+    print("-" * 61)
 
     print("       Max:{:10}{:10}{:10}{:10}{:10}".format(max(scores_subject[0]), max(scores_subject[1]),
           max(scores_subject[2]), max(scores_subject[3]), max(scores_subject[4])))
@@ -49,5 +53,6 @@ def main():
           max(scores_subject[2]), max(scores_subject[3]), max(scores_subject[4])))
     print("       Avg:{:10.2f}{:10.2f}{:10.2f}{:10.2f}{:10.2f}".format(average[0], average[1], average[2],
           average[3], average[4]))
+    print("-" * 61)
 
 main()
