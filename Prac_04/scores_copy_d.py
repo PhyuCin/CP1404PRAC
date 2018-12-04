@@ -55,4 +55,6 @@ def main():
           average[3], average[4]))
     print("-" * 61)
 
+    print(score_values)
+
 main()

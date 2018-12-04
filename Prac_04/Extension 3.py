@@ -14,6 +14,7 @@ def main():
     if repeats == []:
         print("No repeated strings entered")
     else:
+        repeats = list(dict.fromkeys(repeats))
         print("Strings repeated:", ', '.join(repeats))
 
 
