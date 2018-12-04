@@ -1,3 +1,5 @@
+"""Asks the user for a string and then print the counts of how many of each word are in the file"""
+
 def main():
     words_to_count = {}
     string = input("Text: ")

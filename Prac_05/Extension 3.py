@@ -1,3 +1,5 @@
+"""Asks the user the tariff they use, daily use in kWh, and number of billing days to calculate estimated bill."""
+
 def main():
     print("Electricity bill estimator\n")
 

@@ -1,8 +1,12 @@
+"""Asks the user the tariff they use, daily use in kWh, and number of billing days to calculate estimated bill.
+(Adds more tariffs)"""
+
+
 def main():
     print("Electricity bill estimator\n")
 
     tariff_to_cost = {'11': 0.244618, '31': 0.136928, '15': 0.15031996, '23': 0.23022016, '25': 0.25021999}
-
+    tariff = ""
     valid = False
     while valid is False:
         print(", ".join("{}: {}".format(k, v) for k, v in tariff_to_cost.items()))
@@ -26,5 +30,6 @@ def check(tariff, tariff_to_cost):
             return True
     print("Invalid choice!\n")
     return False
+
 
 main()

@@ -1,3 +1,5 @@
+"""Takes the birth dates and return the ages of the people in the list"""
+
 from datetime import date
 
 names = ["Jack", "Jill", "Joe", "Jin", "James"]

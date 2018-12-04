@@ -1,3 +1,5 @@
+"""Return hex colour code when a colour name is entered"""
+
 COLOUR_NAMES = {'white': '#ffffff', 'black': '#000000', 'red': '#ff0000', 'blue': '#4876ff', 'yellow': '#ffff00',
                 'orange': '#ff7f00', 'green': '#00ee76', 'skyblue': '#87ceff', 'purple': '#b452cd', 'pink': '#ffb5c5'}
 
