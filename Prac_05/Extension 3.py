@@ -27,4 +27,5 @@ def check(tariff, tariff_to_cost):
     print("Invalid choice!\n")
     return False
 
+
 main()
