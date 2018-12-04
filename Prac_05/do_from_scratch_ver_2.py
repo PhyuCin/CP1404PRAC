@@ -12,8 +12,13 @@ def main():
         words_list.append(word)
     words_list.sort()
 
+    spaces = 0
+    for word in words_list:
+        if len(word) > spaces:
+            spaces = len(word)
+
     for i in range(len(words_list)):
-        print("{} : {}".format(words_list[i], words_to_count[words_list[i]]))
+        print("{:{}} : {}".format(words_list[i], spaces, words_to_count[words_list[i]]))
 
 
 main()
