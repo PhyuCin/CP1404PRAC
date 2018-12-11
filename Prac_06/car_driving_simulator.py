@@ -1,11 +1,15 @@
 from Prac_06.cars import Car
+INITIAL_FUEL = 100
+INITIAL_ODO = 0
 
 
 def main():
     print("Let's drive!")
     name = input("Enter your car name: ")
-    print(name)
-
+    name = Car(INITIAL_FUEL, name)
+    name.drive(20)
+    print(name.fuel)
+    print(name.odometer)
 
 
 #     my_car = Car(180, "ferrari")
