@@ -1,4 +1,5 @@
-"""CP1404/CP5632 Practical - Car class example."""
+"""CP1404/CP5632 Practical - Car class example.
+Create Car class for used_cars.py"""
 
 
 class Car:

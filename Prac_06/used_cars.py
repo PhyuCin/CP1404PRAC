@@ -1,3 +1,5 @@
+"""get the fuel and distance to test out the Car class"""
+
 from Prac_06.cars import Car
 
 
