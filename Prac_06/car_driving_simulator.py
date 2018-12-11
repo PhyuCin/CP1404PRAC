@@ -7,10 +7,13 @@ def main():
     print("Let's drive!")
     name = input("Enter your car name: ")
     name = Car(INITIAL_FUEL, name)
-    name.drive(20)
-    print(name.fuel)
-    print(name.odometer)
 
+    # name.drive(20)
+    # print(name.fuel)
+    # print(name.odometer)
+
+    name.add_fuel(100)
+    print(name.fuel)
 
 #     my_car = Car(180, "ferrari")
 #     my_car.drive(30)
