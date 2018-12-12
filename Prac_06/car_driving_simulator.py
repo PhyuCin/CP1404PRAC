@@ -1,34 +1,45 @@
 from Prac_06.cars import Car
-INITIAL_FUEL = 100
-INITIAL_ODO = 0
+MENU = """Menu:
+d) drive
+r) refuel
+q) quit"""
 
 
 def main():
     print("Let's drive!")
     name = input("Enter your car name: ")
-    name = Car(INITIAL_FUEL, name)
+    name = Car(100, name)
+    print(name)
+    print(MENU)
+    choice = input("Enter your choice: ").lower()
+    while not choice == "q":
+        if choice == "d":
+            distance = int(input("How many km do you wish to drive? "))
+            while distance <= 0:
+                print("Distance must be >= 0")
+                distance = int(input("How many km do you wish to drive? "))
+            if distance <= name.fuel:
+                name.drive(distance)
+                print("The car drove {}km.".format(distance))
+            else:
+                print("The car drove {}km and ran out of fuel.".format(name.fuel))
+                name.drive(distance)
 
-    # name.drive(20)
-    # print(name.fuel)
-    # print(name.odometer)
+        elif choice == "r":
+            fuel_amount = int(input("How many units of fuel do you want to add to the car? "))
+            while fuel_amount <= 0:
+                print("Fuel amount must be >= 0")
+                fuel_amount = int(input("How many units of fuel do you want to add to the car? "))
+            name.add_fuel(fuel_amount)
+            print("Added {} units of fuel.".format(fuel_amount))
 
-    name.add_fuel(100)
-    print(name.fuel)
-
-#     my_car = Car(180, "ferrari")
-#     my_car.drive(30)
-#
-#     print("fuel =", my_car.fuel)
-#     print("odo =", my_car.odometer)
-#     print(my_car)
-#     print()
-#
-#     limo = Car(100, "limo")
-#     limo.add_fuel(20)
-#     print("fuel =", limo.fuel)
-#     limo.drive(115)
-#     print("odo =", limo.odometer)
-#     print(limo)
+        else:
+            print("Invalid choice")
+        print()
+        print(name)
+        print(MENU)
+        choice = input("Enter your choice: ").lower()
+    print("\nGood bye {}'s driver.".format(name.name))
 
 
 main()
