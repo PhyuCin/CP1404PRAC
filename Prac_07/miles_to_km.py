@@ -18,12 +18,20 @@ class Milestokm(App):
         return self.root
 
     def handle_calculate(self, value):
-        result = value * 1.6
-        self.root.ids.output_label.text = str(result)
+        try:
+            value = int(value)
+            result = value * 1.6
+            self.root.ids.output_label.text = str(result)
+        except ValueError:
+            self.root.ids.output_label.text = str(0.0)
 
     def handle_increment(self, addon, value):
-        value += addon
-        self.root.ids.input_number.text = str(value)
+        try:
+            value = int(value)
+            value += addon
+            self.root.ids.input_number.text = str(value)
+        except ValueError:
+            self.root.ids.input_number.text = str(0)
 
 
 Milestokm().run()
