@@ -10,9 +10,9 @@ def main():
     print("The current fare is {}".format(silvertaxi.get_fare()))
     silvertaxi.start_fare()
 
-    silvertaxi.drive(100)
-    print(silvertaxi)
-    print("The current fare is ${}".format(silvertaxi.get_fare()))
+    # silvertaxi.drive(100)
+    # print(silvertaxi)
+    # print("The current fare is ${}".format(silvertaxi.get_fare()))
 
 
 main()
