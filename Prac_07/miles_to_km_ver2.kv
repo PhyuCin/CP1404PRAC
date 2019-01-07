@@ -1,3 +1,23 @@
+<Widget>:
+    canvas.before:
+        Color:
+            rgba: 0.6, 0.3, 0.8, 0.3
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    color: 0.2, 0.1, 0.8, 0.6
+
+<Button>:
+#    font_name: 'BuxtonSketch.ttf'
+    font_size: 30
+    background_normal: ''
+    background_down: 'atlas://data/images/defaulttheme/button'
+    canvas.after:
+        Color:
+            rgba: 0.6, 0.3, 0.8, 0.6
+        Line:
+            rectangle: self.x + 1, self.y + 1, self.width - 1, self.height - 1
+
 BoxLayout:
     orientation: 'vertical'
     BoxLayout:
