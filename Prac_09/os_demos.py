@@ -8,10 +8,9 @@ import os
 
 def main():
     """Demo os module functions."""
-    # To find out the current working directory
     print("Starting directory is: {}".format(os.getcwd()))
 
-    # Change to desired directory (to go inside that directory)
+    # Change to desired directory
     os.chdir('Lyrics/Christmas')
 
     # Print a list of all files in current directory
@@ -24,7 +23,7 @@ def main():
 
     # Loop through each file in the (current) directory
     for filename in os.listdir('.'):
-        # Ignore directories, just process files (dont do anything to directories, just work with normal files)
+        # Ignore directories, just process files
         if os.path.isdir(filename):
             continue
 
@@ -41,7 +40,19 @@ def main():
 
 def get_fixed_filename(filename):
     """Return a 'fixed' version of filename."""
-    new_name = filename.replace(" ", "_").replace(".TXT", ".txt")
+    number = 0
+    file_name = filename.replace(".TXT", ".txt")
+    new_name = ""
+    for char in file_name:
+        if number == 0:
+            new_name += char.upper()
+            number += 1
+        elif char == " ":
+            new_name += "_"
+        elif char.isupper() is True:
+            new_name += "_"+char
+        else:
+            new_name += char
     return new_name
 
 
