@@ -12,16 +12,15 @@ def main():
     print("Starting directory is: {}".format(os.getcwd()))
 
     # Change to desired directory (to go inside that directory)
-    os.chdir('Lyrics/Christmas/temp')
+    os.chdir('Lyrics/Christmas')
 
     # Print a list of all files in current directory
     print("Files in {}:\n{}\n".format(os.getcwd(), os.listdir('.')))
 
-    # just work with the newly created temp
-    # # Make a new directory
-    # # The next time you run this, it will crash if the directory exists
-    # # TODO: Use exception handling to avoid the crash (just pass)
-    # os.mkdir('temp')
+    # Make a new directory
+    # The next time you run this, it will crash if the directory exists
+    # TODO: Use exception handling to avoid the crash (just pass)
+    os.mkdir('temp')
 
     # Loop through each file in the (current) directory
     for filename in os.listdir('.'):
@@ -34,22 +33,16 @@ def main():
 
         # TODO: Try these options one at a time
         # Option 1: rename file to new name - in place
-        os.rename(filename, new_name)
+        # os.rename(filename, new_name)
 
         # Option 2: move file to new place, with new name
-        # shutil.move(filename, 'temp/' + new_name)
+        shutil.move(filename, 'temp/' + new_name)
 
 
 def get_fixed_filename(filename):
     """Return a 'fixed' version of filename."""
-    # new_name = filename.replace(" ", "_").replace(".TXT", ".txt")
-    new_name = ""
-    for char in filename:
-        if char.islower() is True:
-            new_name += char
-        else:
-            new_name += "_"+char
-    return new_name.strip(' ')
+    new_name = filename.replace(" ", "_").replace(".TXT", ".txt")
+    return new_name
 
 
 def demo_walk():
