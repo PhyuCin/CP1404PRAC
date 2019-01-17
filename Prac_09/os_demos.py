@@ -46,29 +46,35 @@ def get_fixed_filename(filename):
     number = 0
     file_name = filename.replace(".TXT", ".txt")
     new_name = ""
-    for char in file_name:
-        if number == 0:
-            new_name += char.upper()
-            number += 1
-        elif char == " ":
-            new_name += "_"
-        elif char.isupper() is True:
-            new_name += "_"+char
-        else:
-            new_name += char
+    if " " in filename:
+        for char in file_name:
+            if number == 0:
+                new_name += char.upper()
+                number += 1
+            elif char == " ":
+                new_name += "_"
+            else:
+                new_name += char
+    else:
+        for char in file_name:
+            if number == 0:
+                new_name += char.upper()
+                number += 1
+            elif char.isupper() is True:
+                new_name += "_"+char
+            else:
+                new_name += char
     return new_name
 
 
 def demo_walk():
     """Process all subdirectories using os.walk()."""
-    os.chdir('Lyrics')
+    # os.chdir('Lyrics')
     for directory_name, subdirectories, filenames in os.walk('.'):
         print("Directory:", directory_name)
         print("\tcontains subdirectories:", subdirectories)
         print("\tand files:", filenames)
         print("(Current working directory is: {})".format(os.getcwd()))
-
-        # TODO: add a loop to rename the files
 
 
 main()
