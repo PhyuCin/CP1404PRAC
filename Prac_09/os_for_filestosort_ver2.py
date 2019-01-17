@@ -23,30 +23,27 @@ def main():
     ex_xls = input('What category would you like to sort xls files into?')
     ex_xlsx = input('What category would you like to sort xlsx files into?')
     ex_jpg = input('What category would you like to sort jpg files into?')
-    extensions = [ex_doc, ex_docx, ex_png, ex_gif, ex_txt, ex_xls, ex_xlsx, ex_jpg]
-    for extension in extensions:
+    categories = [ex_doc, ex_docx, ex_png, ex_gif, ex_txt, ex_xls, ex_xlsx, ex_jpg]
+    for category in categories:
         try:
-            os.mkdir(extension)
+            os.mkdir(category)
         except FileExistsError:
             pass
 
-#     extension_dic = {".doc": ex_doc, ".docx": ex_docx, ".png": ex_png, ".gif": ex_gif, ".txt": ex_txt,
-#                   ".xls": ex_xls, ".xlsx": ex_xlsx, ".jpg": ex_jpg}
-#
-#     # Loop through each file in the (current) directory
-#     for filename in os.listdir('.'):
-#         # Ignore directories, just process files
-#         if os.path.isdir(filename):
-#             continue
-#
-#         extension = filename.split(".", 1)[1]
-#         if extension not in extensions:
-#             os.mkdir(extension)
-#             extensions.append(extension)
-#         shutil.move(filename, extension + "/" + filename)
-#         print("Moved {} to {}".format(filename, extension))
-#
-#
+    category_dic = {"doc": ex_doc, "docx": ex_docx, "png": ex_png, "gif": ex_gif, "txt": ex_txt,
+                    "xls": ex_xls, "xlsx": ex_xlsx, "jpg": ex_jpg}
+
+    # Loop through each file in the (current) directory
+    for filename in os.listdir('.'):
+        # Ignore directories, just process files
+        if os.path.isdir(filename):
+            continue
+        extension = filename.split(".", 1)[1]
+        category = category_dic.get(extension)
+        shutil.move(filename, category + "/" + filename)
+        print("Moved {} to {}".format(filename, category))
+
+
 main()
 
 
