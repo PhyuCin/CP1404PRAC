@@ -2,11 +2,17 @@ import wikipedia
 
 
 def main():
-    search_phrase = input("Enter a search phrase: ")
-    if wikipedia.suggest(search_phrase) is None:
-        print(", ".join(wikipedia.search(search_phrase)))
-    else:
-        print(wikipedia.suggest(search_phrase))
+    search_phrase = "Empty"
+    while search_phrase != "":
+        print("Enter a search phrase (or enter a blank to exit)")
+        search_phrase = input(">>> ")
+        if search_phrase == "":
+            continue
+        elif wikipedia.suggest(search_phrase) is None:
+            print(wikipedia.summary(search_phrase))
+        else:
+            print("Suggestion:", wikipedia.suggest(search_phrase))
+    print("Bye~")
 
 
 main()
